@@ -396,6 +396,18 @@ public class Localidade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
+        
+        if (txt_Cidade.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        else if (txt_Codigo_Postal.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        
         LocalidadeModel obj = new LocalidadeModel();
         obj.setCidade(txt_Cidade.getText());
         obj.setCod_postal(txt_Codigo_Postal.getText());

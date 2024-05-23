@@ -558,6 +558,10 @@ public class Pagamentos extends javax.swing.JFrame {
 
     private void btn_Registrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Registrar1ActionPerformed
         
+         if (txt_valor_pago.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
         
         
         VendasModel obj = new VendasModel();

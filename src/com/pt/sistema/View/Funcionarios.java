@@ -273,7 +273,7 @@ public class Funcionarios extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txt_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btn_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 90, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane2)
                         .addContainerGap())))
@@ -542,6 +542,41 @@ public class Funcionarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
+        
+         if (txt_Nome_do_Funcionario.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         else if (txt_Email_do_Funcionario.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         else if (txt_Endereco.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         else if (txt_Nif_do_Funcionario.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         
+         else if (txt_Senha.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         
+         else if (txt_Telefone.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         
+         else if (txt_horas_de_Trabalho.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        
+        
         FuncionariosModel obj = new FuncionariosModel();
         obj.setNomeDoFuncionario(txt_Nome_do_Funcionario.getText());
         obj.setEmail(txt_Email_do_Funcionario.getText());

@@ -508,6 +508,23 @@ public class Eventos extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_localidadeAncestorAdded
 
     private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
+        
+        if(txt_Endereco.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        else if (txt_Lista_de_Convidados.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        else if (txt_Tipo_de_Evento.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        
         EventosModel obj = new EventosModel();
         obj.setCliente((ClientesModel) cb_cliente.getSelectedItem());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

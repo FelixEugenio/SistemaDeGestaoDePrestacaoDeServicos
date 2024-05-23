@@ -153,6 +153,17 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        
+        if (txtemail.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        else if (txtSenha.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
         try{
             String email,senha;
             email=txtemail.getText();

@@ -485,6 +485,23 @@ public class ContratoFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_fornecedorAncestorAdded
 
     private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
+        
+        if(txt_Termos_e_condicoes.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        else if (txt_status.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        else if (txt_valor_contrato.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        
         ContratoFornecedorModel obj = new ContratoFornecedorModel();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         obj.setDataDeInicio(sdf.format(data_inicio.getDate()));

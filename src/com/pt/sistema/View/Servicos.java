@@ -405,7 +405,24 @@ public class Servicos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
-       ServicoModel obj = new ServicoModel();
+      
+         if (txt_duracao.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         
+         else if (txt_preco.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         
+         else if (txt_tipo_de_Servico.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        
+        
+        ServicoModel obj = new ServicoModel();
        obj.setTipoDeServico(txt_tipo_de_Servico.getText());
        obj.setPreco(Double.parseDouble(txt_preco.getText()));
        obj.setDuracao(Integer.parseInt(txt_duracao.getText()));

@@ -525,7 +525,27 @@ public class Fornecedores extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_servicoAncestorAdded
 
     private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
-       FornecedoresModel obj = new FornecedoresModel();
+       
+         if (txt_Email_do_Fornecedor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+        else if (txt_Nome_do_Fornecedor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        } 
+        
+         else if (txt_Endereco.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         else if (txt_Nif_do_Fornecedor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Porfavor Preencha os Espacos Vazios");
+            return;
+        }
+         
+         
+        FornecedoresModel obj = new FornecedoresModel();
         obj.setNomeDoFornecedor(txt_Nome_do_Fornecedor.getText());
         obj.setEmail(txt_Email_do_Fornecedor.getText());
         obj.setEndereco(txt_Endereco.getText());
