@@ -19,7 +19,7 @@ public class ConexaoBancoRelatorios {
 
     private Connection conexao;
     private Statement statement;
-    private ResultSet resultSet;
+    public ResultSet resultSet;
 
     /**
      * Método para conectar ao banco de dados
@@ -30,7 +30,7 @@ public class ConexaoBancoRelatorios {
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, usuario, senha);
-            JOptionPane.showMessageDialog(null, "Conexão estabelecida com sucesso!");
+           
         } catch (ClassNotFoundException Driver) {
             JOptionPane.showMessageDialog(null, "Driver não encontrado: " + Driver);
             resultado = false;

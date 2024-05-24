@@ -17,6 +17,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import Relatorios.RelatorioClientes;
 /**
  *
  * @author Felix Eugenio Mavila
@@ -86,6 +87,7 @@ public class Clientes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         lbl_Logado = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        btn_Imprimir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lbl_funcionarios = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -186,6 +188,16 @@ public class Clientes extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setText("Utilizador :");
 
+        btn_Imprimir.setBackground(new java.awt.Color(51, 204, 255));
+        btn_Imprimir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_Imprimir.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Imprimir.setText("Imprimir Relatorio");
+        btn_Imprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -228,9 +240,11 @@ public class Clientes extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txt_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(btn_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(45, Short.MAX_VALUE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_Imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(39, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +298,8 @@ public class Clientes extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(btn_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
@@ -632,6 +647,12 @@ public class Clientes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txt_Nif_do_ClienteKeyTyped
 
+    private void btn_ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ImprimirActionPerformed
+      this.dispose();
+      new Relatorios.RelatorioClientes();
+      // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ImprimirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -675,6 +696,7 @@ public class Clientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Imprimir;
     private javax.swing.JButton btn_Registrar;
     private javax.swing.JComboBox cb_localidade;
     private com.toedter.calendar.JDateChooser date_cliente;
