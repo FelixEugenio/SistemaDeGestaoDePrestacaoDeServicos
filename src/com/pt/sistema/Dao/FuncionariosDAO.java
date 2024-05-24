@@ -10,6 +10,7 @@ import com.pt.sistema.Jdbc.ConexaoBanco;
 import com.pt.sistema.Model.FornecedoresModel;
 import com.pt.sistema.Model.FuncionariosModel;
 import com.pt.sistema.Model.LocalidadeModel;
+import com.pt.sistema.View.Configuracoes;
 import com.pt.sistema.View.Home;
 import com.pt.sistema.View.Login;
 import java.sql.SQLException;
@@ -85,6 +86,7 @@ public class FuncionariosDAO {
             if(rs.next()){
                if(rs.getString("nivel_acesso").equals("Administrador")){
                    Home tr = new Home();
+                  
                    tr.UsuarioLogado = rs.getString("nome_do_funcionario");
                  JOptionPane.showMessageDialog(null, "Seja Bem vindo ao Sistema\n"+tr.UsuarioLogado);
                 tr.setVisible(true);
