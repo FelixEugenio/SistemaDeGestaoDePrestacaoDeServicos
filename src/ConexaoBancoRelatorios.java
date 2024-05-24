@@ -43,7 +43,14 @@ public class ConexaoBancoRelatorios {
     }
 
    public void desconecta(){
-
+       boolean resultado = true;
+       try{
+           conexao.close();
+           JOptionPane.showMessageDialog(null, "Bnaco Fechado");
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Erro ao Conectar ao banco de dados  ");
+            resultado = false;
+       }
    }
 }
 
