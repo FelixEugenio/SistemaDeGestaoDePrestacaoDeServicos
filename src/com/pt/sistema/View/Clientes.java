@@ -512,51 +512,44 @@ public class Clientes extends javax.swing.JFrame {
 
     private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
         
-        if(txtNomedoCliente.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Porfavor Prrencha todos os espacos Vazios");
-            return;
-        }
-        
-        else if(txt_Endereco.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Porfavor Prrencha todos os espacos Vazios");
-            return;
-        }
-        
-        else if(txt_email.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Porfavor Prrencha todos os espacos Vazios");
-            return;
-        }
-        
-        else if(txt_Nif_do_Cliente.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Porfavor Prrencha todos os espacos Vazios");
-            return;
-        }
-        else if(txt_Telefone.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Porfavor Prrencha todos os espacos Vazios");
-            return;
-        }
-        
-        else if(txt_Endereco.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Porfavor Prrencha todos os espacos Vazios");
-            return;
-        }
-        
-        ClientesModel obj = new ClientesModel();
-        obj.setNomeDoCliente(txtNomedoCliente.getText());
-        obj.setEmail(txt_email.getText());
-        obj.setEndereco(txt_Endereco.getText());
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        obj.setDataDeNascimento(sdf.format(date_cliente.getDate()));
-        obj.setNif(Integer.parseInt(txt_Nif_do_Cliente.getText()));
-        obj.setTelefone(Integer.parseInt(txt_Telefone.getText()));
-        obj.setLocalidade((LocalidadeModel)cb_localidade.getSelectedItem());
-        
-        ClientesDAO dao = new ClientesDAO();
-        dao.Salvar(obj);
-        
-         Utilitarios util = new Utilitarios();
-        
-        util.LimpaTela(jPanel2);
+       if(txtNomedoCliente.getText().isEmpty() || 
+       txt_Endereco.getText().isEmpty() || 
+       txt_email.getText().isEmpty() || 
+       txt_Nif_do_Cliente.getText().isEmpty() || 
+       txt_Telefone.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Por favor, preencha todos os espaços vazios.");
+        return;
+    }
+    
+    // Verificando se NIF e Telefone contêm apenas números
+    if (!txt_Nif_do_Cliente.getText().matches("\\d+")) {
+        JOptionPane.showMessageDialog(null, "O NIF deve conter apenas números.");
+        return;
+    }
+    
+    if (!txt_Telefone.getText().matches("\\d+")) {
+        JOptionPane.showMessageDialog(null, "O telefone deve conter apenas números.");
+        return;
+    }
+
+    ClientesModel obj = new ClientesModel();
+    obj.setNomeDoCliente(txtNomedoCliente.getText());
+    obj.setEmail(txt_email.getText());
+    obj.setEndereco(txt_Endereco.getText());
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    obj.setDataDeNascimento(sdf.format(date_cliente.getDate()));
+    
+    // Convertendo NIF e telefone para números inteiros
+    obj.setNif(Integer.parseInt(txt_Nif_do_Cliente.getText()));
+    obj.setTelefone(Integer.parseInt(txt_Telefone.getText()));
+    
+    obj.setLocalidade((LocalidadeModel) cb_localidade.getSelectedItem());
+    
+    ClientesDAO dao = new ClientesDAO();
+    dao.Salvar(obj);
+    
+    Utilitarios util = new Utilitarios();
+    util.LimpaTela(jPanel2);
     }//GEN-LAST:event_btn_RegistrarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
