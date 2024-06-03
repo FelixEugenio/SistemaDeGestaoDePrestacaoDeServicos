@@ -8,9 +8,11 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 import com.pt.sistema.Jdbc.ConexaoBanco;
 import com.pt.sistema.Model.VendasModel;
+import com.pt.sistema.Model.CarrinhoModel;
 import com.pt.sistema.Model.EventosModel;
 import com.pt.sistema.Model.ClientesModel;
 import com.pt.sistema.Model.LocalidadeModel;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -113,5 +115,17 @@ public class VendasDAO {
       JOptionPane.showMessageDialog(null, "erro ao criar a lista"+ e.getMessage());
         }
         return null;
+    }
+     
+     public void Excluir(VendasModel obj){
+        try{
+          String sql = "truncate table Tbl_Carrinho"; 
+            try (java.sql.PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.execute();
+            }
+            JOptionPane.showMessageDialog(null, "Carrinho Limpo Com Sucesso");
+        }catch(HeadlessException | SQLException e){
+             JOptionPane.showMessageDialog(null, "erro ao excluir o cliente"+ e.getMessage());
+        }
     }
 }

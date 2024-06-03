@@ -576,7 +576,8 @@ public class Pagamentos extends javax.swing.JFrame {
         
         
         VendasDAO dao = new VendasDAO();
-        dao.Salvar(obj); 
+        dao.Salvar(obj);
+        dao.Excluir(obj);
         
        Utilitarios util = new Utilitarios();
         
