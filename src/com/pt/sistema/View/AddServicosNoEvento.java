@@ -70,6 +70,7 @@ public class AddServicosNoEvento extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         lbl_Logado = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        btn_Limpar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lbl_funcionarios = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -159,6 +160,16 @@ public class AddServicosNoEvento extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Utilizador :");
 
+        btn_Limpar.setBackground(new java.awt.Color(51, 204, 255));
+        btn_Limpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_Limpar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Limpar.setText("Limpar Tabela");
+        btn_Limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -175,6 +186,8 @@ public class AddServicosNoEvento extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cb_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btn_Limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +233,9 @@ public class AddServicosNoEvento extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(cb_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btn_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -449,6 +464,7 @@ public class AddServicosNoEvento extends javax.swing.JFrame {
         dao.Salvar(obj);
         dao.SalvarNoCarrinho();
         
+        
         Utilitarios util = new Utilitarios();
         
         util.LimpaTela(jPanel2);
@@ -542,6 +558,15 @@ public class AddServicosNoEvento extends javax.swing.JFrame {
     private void lbl_configuracoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_configuracoesMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_configuracoesMouseClicked
+
+    private void btn_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LimparActionPerformed
+        EventoServicoModel obj = new EventoServicoModel();
+        
+        EventoServicoDAO dao = new EventoServicoDAO();
+        
+        dao.Excluir(obj);
+        
+    }//GEN-LAST:event_btn_LimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -642,6 +667,7 @@ public class AddServicosNoEvento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Limpar;
     private javax.swing.JButton btn_Registrar;
     private javax.swing.JComboBox cb_eventos;
     private javax.swing.JComboBox cb_servico;

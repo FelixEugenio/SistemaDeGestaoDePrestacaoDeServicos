@@ -10,6 +10,8 @@ import com.pt.sistema.Jdbc.ConexaoBanco;
 import com.pt.sistema.Model.EventoServicoModel;
 import com.pt.sistema.Model.ServicoModel;
 import com.pt.sistema.Model.EventosModel;
+import com.pt.sistema.Model.VendasModel;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,6 +85,18 @@ public class EventoServicoDAO {
       JOptionPane.showMessageDialog(null, "erro ao criar a lista"+ e.getMessage());
         }
         return null;
+    }
+    
+    public void Excluir(EventoServicoModel obj){
+        try{
+          String sql = "truncate table Tbl_Evento_Servico"; 
+            try (java.sql.PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.execute();
+            }
+            JOptionPane.showMessageDialog(null, "Carrinho Limpo Com Sucesso");
+        }catch(HeadlessException | SQLException e){
+             JOptionPane.showMessageDialog(null, "erro ao excluir o cliente"+ e.getMessage());
+        }
     }
     
 }
